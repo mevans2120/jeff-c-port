@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ── Custom theme tokens (Tailwind v4) ────────────────────────────── */
+@theme inline {
+  /* Font family */
+  --font-sans: var(--font-inter);
+
+  /* Accent palette — slate-blue */
+  --color-accent-50: #eff2fe;
+  --color-accent-100: #e2e6fd;
+  --color-accent-200: #cbcffb;
+  --color-accent-300: #abb0f7;
+  --color-accent-400: #8e8af1;
+  --color-accent-500: #7b6ce9;
+  --color-accent-600: #6a50db;
+  --color-accent-700: #5b41c1;
+  --color-accent-800: #4a369d;
+  --color-accent-900: #3e327d;
+  --color-accent-950: #261d4a;
+
+  /* Neutral palette */
+  --color-surface-50: #fafafa;
+  --color-surface-100: #f4f4f5;
+  --color-surface-200: #e4e4e7;
+  --color-surface-300: #d4d4d8;
+  --color-surface-400: #a1a1aa;
+  --color-surface-500: #71717a;
+  --color-surface-600: #52525b;
+  --color-surface-700: #3f3f46;
+  --color-surface-800: #27272a;
+  --color-surface-900: #18181b;
+  --color-surface-950: #09090b;
+}
+
+/* ── Base layer ───────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-50 text-surface-900;
+    @apply transition-colors duration-200;
+  }
+
+  :is(.dark body) {
+    @apply bg-surface-950 text-surface-100;
+  }
+
+  /* Smooth dark-mode transition on background/text */
+  * {
+    @apply transition-colors duration-200;
+  }
+}
